@@ -1,4 +1,4 @@
-FROM arm64v8/rust:1.89 as builder
+FROM arm64v8/rust:1.89.0 as builder
 WORKDIR /app
 COPY . .
 RUN cargo build --release
