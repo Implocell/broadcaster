@@ -3,7 +3,7 @@ WORKDIR /app
 COPY . .
 RUN cargo build --release
 
-FROM arm64v8/debian:13
+FROM arm64v8/debian:13-slim
 RUN apt-get update && apt-get install -y ca-certificates && rm -rf /var/lib/apt/lists/*
 COPY --from=builder /app/target/release/broadcast-server /usr/local/bin/broadcast-server
 EXPOSE 8080
